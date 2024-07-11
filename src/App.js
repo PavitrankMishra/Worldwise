@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Homepage from "./pages/Homepage";
+import Product from "./pages/Product";
+import Pricing from "./pages/Pricing";
+import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./pages/AppLayout";
+import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
+import Form from "./components/Form";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Homepage />} />
+        <Route path="product" element={<Product />} />
+        <Route path="pricing" element={<Pricing />} />
+        <Route path="app" element={<AppLayout />}>
+          <Route index element={<CityList />} />
+          <Route path="cities" element={<p>List of cities</p>} />
+          <Route path="countries" element={<p>List of Countries</p>} />
+          <Route path="form" element={<p>Form</p>} />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
