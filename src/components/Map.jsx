@@ -14,13 +14,22 @@ import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 // import { useMap } from "react-leaflet";
+
+import { useGeolocation } from "../hooks/useGeolocation";
+import { useUrlPosition } from "../hooks/useUrlPosition";
+import Button from "./Button";
 function Map() {
   const navigate = useNavigate();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
   const [searchParams, setSearchParams] = useSearchParams();
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
+  const {
+    isLoading: isLoadingPosition,
+    position: geolocationPosition,
+    getPosition,
+  } = useGeolocation();
+
+  const [mapLat, mapLng ] = useUrlPosition();
 
   useEffect(
     function () {
@@ -29,8 +38,22 @@ function Map() {
     [mapLat, mapLng]
   );
 
+  useEffect(
+    function () {
+      if (geolocationPosition) {
+        setMapPosition(geolocationPosition);
+      }
+    },
+    [geolocationPosition]
+  );
+
   return (
     <div className={styles.mapContainer}>
+      {!geolocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use your Location"}
+        </Button>
+      )}
       <MapContainer
         // center={[mapLat ? mapLat : 0, mapLng ? mapLng : 0]}
         center={mapPosition}
