@@ -9,6 +9,8 @@ import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useEffect } from "react";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -23,14 +25,17 @@ function Form() {
   console.log(lat);
   const [isGeoLoading, setIsGeoLoading] = useState(false);
   const [cityName, setCityName] = useState("");
+  const [emoji, setEmoji] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const [geoCodingError, setGeoCodingError] = useState("");
 
   const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
+
   useEffect(
     function () {
+      if (!lat && !lng) return;
       async function fetchCitiesData() {
         try {
           setGeoCodingError("");
@@ -47,6 +52,7 @@ function Form() {
           }
           setCityName(data.city || data.locality || "");
           setCountry(data.country);
+          setEmoji(convertToEmoji(data.countryCode));
           console.log(data);
         } catch (err) {
           setGeoCodingError(err.message);
@@ -59,10 +65,31 @@ function Form() {
     [lat, lng]
   );
 
-  if(isGeoLoading) return <Spinner />
+  function handleSubmit(e) {
+    console.log("Form validation");
+    e.preventDefault();
+    console.log(e);
+    if (!cityName || !date) return "Form validation failed";
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+
+    console.log(newCity);
+  }
+  if (!lat && !lng)
+    return (
+      <Message message={`Start by adding cities by clicking on the map`} />
+    );
+
+  if (isGeoLoading) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError}></Message>;
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City Name </label>
         <input
@@ -70,15 +97,22 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        {/* <span className={styles.flag}>{emoji}</span> */}
+        <span className={styles.flag}>{emoji}</span>
       </div>
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        {/* <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
+        /> */}
+
+        <DatePicker
+          onChange={(date) => setDate(date)}
+          id="date"
+          selected={date}
+          dateFormat="dd/MM/yyyy"
         />
       </div>
 
@@ -92,7 +126,9 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="primary">Add</Button>
+        <Button type="primary" onClick={handleSubmit}>
+          Add
+        </Button>
         <BackButton />
       </div>
     </form>
