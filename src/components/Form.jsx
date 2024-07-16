@@ -11,6 +11,8 @@ import Message from "./Message";
 import Spinner from "./Spinner";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useCities } from "../contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -21,6 +23,7 @@ export function convertToEmoji(countryCode) {
 }
 
 function Form() {
+  const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
   console.log(lat);
   const [isGeoLoading, setIsGeoLoading] = useState(false);
@@ -30,6 +33,7 @@ function Form() {
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const [geoCodingError, setGeoCodingError] = useState("");
+  const { createCity, isLoading } = useCities();
 
   const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
@@ -51,7 +55,7 @@ function Form() {
             );
           }
           setCityName(data.city || data.locality || "");
-          setCountry(data.country);
+          setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
           console.log(data);
         } catch (err) {
@@ -65,10 +69,8 @@ function Form() {
     [lat, lng]
   );
 
-  function handleSubmit(e) {
-    console.log("Form validation");
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
     if (!cityName || !date) return "Form validation failed";
     const newCity = {
       cityName,
@@ -79,8 +81,10 @@ function Form() {
       position: { lat, lng },
     };
 
-    console.log(newCity);
+    await createCity(newCity);
+    navigate("/app/cities");
   }
+
   if (!lat && !lng)
     return (
       <Message message={`Start by adding cities by clicking on the map`} />
@@ -89,7 +93,10 @@ function Form() {
   if (isGeoLoading) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError}></Message>;
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City Name </label>
         <input
