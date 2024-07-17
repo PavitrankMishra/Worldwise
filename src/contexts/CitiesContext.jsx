@@ -67,6 +67,7 @@ function CitiesProvider({ children }) {
         method: "DELETE",
       });
 
+      console.log(res);
       setCities((cities) => cities.filter((city) => city.id !== id));
     } catch (err) {
       console.log("The was an error deleting the city");
