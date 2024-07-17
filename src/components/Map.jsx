@@ -5,17 +5,24 @@ import {
   MapContainer,
   TileLayer,
   Marker,
-  Popup,
+  Popup, 
   useMap,
   useMapEvents,
 } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
-// import { useMap } from "react-leaflet";
+import L from "leaflet";
 
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
+
+const customIcon = L.icon({
+  iconUrl: `${process.env.PUBLIC_URL}/Marker.png`, // Adjust the image name as necessary
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+});
 function Map() {
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
@@ -67,6 +74,7 @@ function Map() {
               city.position ? city.position.lat : 0,
               city.position ? city.position.lng : 0,
             ]}
+            icon ={customIcon}
             key={city.id}
           >
             <Popup>
