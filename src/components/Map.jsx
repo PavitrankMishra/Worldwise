@@ -1,7 +1,6 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Map.module.css";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 import {
   MapContainer,
   TileLayer,
@@ -12,24 +11,21 @@ import {
 } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 // import { useMap } from "react-leaflet";
 
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
 function Map() {
-  const navigate = useNavigate();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
-  const [searchParams, setSearchParams] = useSearchParams();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
 
-  const [mapLat, mapLng ] = useUrlPosition();
+  const [mapLat, mapLng] = useUrlPosition();
 
   useEffect(
     function () {

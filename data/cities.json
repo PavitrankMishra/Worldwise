@@ -1,16 +1,3 @@
 {
-  "cities": [
-    {
-      "id": "b5ff",
-      "cityName": "Agra",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-07-17T06:33:56.705Z",
-      "notes": "",
-      "position": {
-        "lat": "27.17465282405336",
-        "lng": "78.00962448120119"
-      }
-    }
-  ]
+  "cities": []
 }
