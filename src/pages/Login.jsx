@@ -13,8 +13,6 @@ export default function Login() {
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Submit button tested");
-
     if (email && password) login(email, password);
   }
 

@@ -25,7 +25,6 @@ export function convertToEmoji(countryCode) {
 function Form() {
   const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
-  console.log(lat);
   const [isGeoLoading, setIsGeoLoading] = useState(false);
   const [cityName, setCityName] = useState("");
   const [emoji, setEmoji] = useState("");
