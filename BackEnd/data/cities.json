@@ -71,6 +71,54 @@
         "lat": "33.72535060621749",
         "lng": "75.05859375000001"
       }
+    },
+    {
+      "cityName": "Surankot",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-07-29T05:18:46.376Z",
+      "notes": "",
+      "position": {
+        "lat": "33.65149803761249",
+        "lng": "74.34438656296552"
+      },
+      "id": "IFC53IX"
+    },
+    {
+      "cityName": "Tchirozerine",
+      "country": "Niger (the)",
+      "emoji": "🇳🇪",
+      "date": "2024-07-29T05:19:22.154Z",
+      "notes": "",
+      "position": {
+        "lat": "17.154692273228875",
+        "lng": "8.876953125000002"
+      },
+      "id": "JqGFPiE"
+    },
+    {
+      "cityName": "Gourma Rharous",
+      "country": "Mali",
+      "emoji": "🇲🇱",
+      "date": "2024-07-29T05:19:28.911Z",
+      "notes": "",
+      "position": {
+        "lat": "16.307876657195624",
+        "lng": "-1.9335937500000002"
+      },
+      "id": "ZS-1vyQ"
+    },
+    {
+      "cityName": "Pathardi",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-07-29T05:19:33.646Z",
+      "notes": "",
+      "position": {
+        "lat": "19.104759868389042",
+        "lng": "75.34380420316938"
+      },
+      "id": "0k4MlwF"
     }
   ]
 }
