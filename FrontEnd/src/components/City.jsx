@@ -19,31 +19,12 @@ function City() {
 
   useEffect(
     function () {
-      getCity(id);
+      if(id && (!currentCity || currentCity.id !== id)) {
+        getCity(id);
+      }
     },
-    [id, getCity]
+    [id, getCity, currentCity]
   );
-  // const [searchParams, setSearchParams] = useSearchParams();
-
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
-
-  // return (
-  //   <div className={styles.city}>
-  //     <h1>City {id}</h1>
-  //     <p>
-  //       Position: {lat}, {lng}
-  //     </p>
-  //   </div>
-  // );
-
-  // TEMP DATA
-  // const currentCity = {
-  //   cityName: "Lisbon",
-  //   emoji: "🇵🇹",
-  //   date: "2027-10-31T15:59:59.138Z",
-  //   notes: "My favorite city so far!",
-  // };
   const { cityName, emoji, date, notes } = currentCity;
 
   if (isLoading) return <Spinner />;

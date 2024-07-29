@@ -13,112 +13,76 @@
       }
     },
     {
-      "id": "e21a",
-      "cityName": "Mathura",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-07-17T12:32:30.752Z",
-      "notes": "",
-      "position": {
-        "lat": "27.460428081981554",
-        "lng": "77.44262695312501"
-      }
-    },
-    {
-      "id": "85c0",
       "cityName": "Castello de la Plana",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2024-07-28T06:49:17.407Z",
+      "date": "2024-07-29T07:04:20.683Z",
       "notes": "",
       "position": {
-        "lat": "39.98612159412114",
-        "lng": "-0.03501892089843751"
-      }
+        "lat": "40.000018084754124",
+        "lng": "-0.04034042358398438"
+      },
+      "id": "cLxd3ya"
     },
     {
-      "id": "50f8",
-      "cityName": "Muzaffargarh",
-      "country": "Pakistan",
-      "emoji": "🇵🇰",
-      "date": "2024-07-28T06:50:55.485Z",
+      "cityName": "La Trinite",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-07-29T07:04:27.614Z",
       "notes": "",
       "position": {
-        "lat": "30.241318307869218",
-        "lng": "71.03759765625001"
-      }
+        "lat": "43.7401006503631",
+        "lng": "7.338867187500001"
+      },
+      "id": "aEk2gGC"
     },
     {
-      "id": "0d47",
-      "cityName": "Agra",
+      "cityName": "Hincesti",
+      "country": "Moldova (the Republic of)",
+      "emoji": "🇲🇩",
+      "date": "2024-07-29T07:04:32.419Z",
+      "notes": "",
+      "position": {
+        "lat": "46.864972953511774",
+        "lng": "28.388671875000004"
+      },
+      "id": "a3PgDxz"
+    },
+    {
+      "cityName": "Golog",
+      "country": "China",
+      "emoji": "🇨🇳",
+      "date": "2024-07-29T07:04:37.217Z",
+      "notes": "",
+      "position": {
+        "lat": "33.45103840945027",
+        "lng": "101.6015625"
+      },
+      "id": "aHZ-qBS"
+    },
+    {
+      "cityName": "Bijolia",
       "country": "India",
       "emoji": "🇮🇳",
-      "date": "2024-07-28T09:53:39.944Z",
+      "date": "2024-07-29T07:04:41.102Z",
       "notes": "",
       "position": {
-        "lat": "27.174959146608895",
-        "lng": "78.00945281982423"
-      }
+        "lat": "25.145089211783045",
+        "lng": "75.39248444902802"
+      },
+      "id": "j24y0EG"
     },
     {
-      "id": "a316",
-      "cityName": "Kulgam",
+      "cityName": "Singoli",
       "country": "India",
       "emoji": "🇮🇳",
-      "date": "2024-07-28T09:54:55.021Z",
+      "date": "2024-07-29T09:11:53.206Z",
       "notes": "",
       "position": {
-        "lat": "33.72535060621749",
-        "lng": "75.05859375000001"
-      }
-    },
-    {
-      "cityName": "Surankot",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-07-29T05:18:46.376Z",
-      "notes": "",
-      "position": {
-        "lat": "33.65149803761249",
-        "lng": "74.34438656296552"
+        "lat": "24.94718297303318",
+        "lng": "74.83886718750001"
       },
-      "id": "IFC53IX"
-    },
-    {
-      "cityName": "Tchirozerine",
-      "country": "Niger (the)",
-      "emoji": "🇳🇪",
-      "date": "2024-07-29T05:19:22.154Z",
-      "notes": "",
-      "position": {
-        "lat": "17.154692273228875",
-        "lng": "8.876953125000002"
-      },
-      "id": "JqGFPiE"
-    },
-    {
-      "cityName": "Gourma Rharous",
-      "country": "Mali",
-      "emoji": "🇲🇱",
-      "date": "2024-07-29T05:19:28.911Z",
-      "notes": "",
-      "position": {
-        "lat": "16.307876657195624",
-        "lng": "-1.9335937500000002"
-      },
-      "id": "ZS-1vyQ"
-    },
-    {
-      "cityName": "Pathardi",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-07-29T05:19:33.646Z",
-      "notes": "",
-      "position": {
-        "lat": "19.104759868389042",
-        "lng": "75.34380420316938"
-      },
-      "id": "0k4MlwF"
+      "id": "k4mT8DJ"
     }
   ]
 }

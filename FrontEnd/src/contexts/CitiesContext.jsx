@@ -27,6 +27,7 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
+
   async function getCity(id) {
     try {
       setIsLoading(true);
@@ -47,7 +48,7 @@ function CitiesProvider({ children }) {
         method: "POST",
         body: JSON.stringify(newCity),
         headers: {
-          "ContenT-Type": "application/json",
+          "Content-Type": "application/json",
         },
       });
 
