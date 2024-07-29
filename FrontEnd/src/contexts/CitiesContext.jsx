@@ -4,7 +4,7 @@ import { createContext, useEffect, useState, useContext } from "react";
 // 1) Create a context
 const CitiesContext = createContext();
 
-const BASE_URL = `http://localhost:3000`;
+const BASE_URL = `https://worldwise-0yo1.onrender.com`;
 
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
