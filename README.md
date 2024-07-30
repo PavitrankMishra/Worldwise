@@ -1,4 +1,4 @@
-Link to the website: https://pavitrankmishra.github.io/MovieArea/
+Link to the website: https://travelmemoir.netlify.app/
 
 DESCRIPTION
 Welcome to Worldwise - your ultimate destination for all things travel! Immerse yourself in a world of exploration where you can discover, document, and reminisce about the cities and countries you've visited. Our platform offers a comprehensive database of global destinations at your fingertips.
