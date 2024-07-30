@@ -11,7 +11,7 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function CityItem({ city }) {
-  const { emoji, cityName, date, id, position } = city;
+  const { cityName, date, id, position } = city;
   const { currentCity, deleteCity } = useCities();
 
   function handleDelete(e) {
@@ -26,7 +26,6 @@ function CityItem({ city }) {
           id === currentCity.id ? styles["cityItem--active"] : ""
         }`}
       >
-        <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
         <button className={styles.deleteBtn} onClick={handleDelete}>

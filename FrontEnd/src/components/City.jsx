@@ -19,22 +19,20 @@ function City() {
 
   useEffect(
     function () {
-      if(id && (!currentCity || currentCity.id !== id)) {
+      if (id && (!currentCity || currentCity.id !== id)) {
         getCity(id);
       }
     },
     [id, getCity, currentCity]
   );
-  const { cityName, emoji, date, notes } = currentCity;
+  const { cityName, date, notes } = currentCity;
 
   if (isLoading) return <Spinner />;
   return (
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
-        <h3>
-          <span>{emoji}</span> {cityName}
-        </h3>
+        <h3> {cityName}</h3>
       </div>
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
